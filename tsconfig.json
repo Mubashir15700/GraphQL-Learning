@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ES6", // Ensures the compiled JavaScript is in ES6 (modern JavaScript)
+    "module": "Node16", // Keeps CommonJS module system for compatibility
+    "moduleResolution": "node16", // Resolves modules in the way Node.js does for ES modules
+    "strict": true, // Enforces strict type checking
+    "esModuleInterop": true, // Allows interop between CommonJS and ES Modules
+    "skipLibCheck": true, // Skips library type checking for faster compilation
+    "forceConsistentCasingInFileNames": true, // Ensures consistent file naming case (important for cross-platform)
+    "outDir": "./dist", // Directory to output compiled files
+    "rootDir": "./src", // Root directory of TypeScript files
+    "allowImportingTsExtensions": true, // Allows importing TypeScript files with explicit extensions (for ES Modules)
+    "noEmit": true // Set to false if you want TypeScript to emit compiled JavaScript (set to true if only type-checking)
+  },
+  "include": ["src/**/*.ts"], // Include all TypeScript files in the src folder
+  "exclude": ["node_modules"] // Exclude node_modules from compilation
+}
