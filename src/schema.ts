@@ -8,7 +8,9 @@ const schema = buildSchema(`
         greet(name: String!): String
         randomNumber: Int
         user(id: Int!): User    # Returns a 'User' object containing fields like id, name, and email.
-        totalUsers: Int
+        totalUsers: Int,
+        rollDice(numDice: Int!, numSides: Int): [Int],
+        ip: String
     }
 
     # The 'User' type defines the structure of a user object in the API.

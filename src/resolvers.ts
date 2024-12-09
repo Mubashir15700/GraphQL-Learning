@@ -7,6 +7,8 @@ interface Query {
   randomNumber: () => number;
   user: (args: { id: number }) => User | null;
   totalUsers: () => number;
+  rollDice: (args: { numDice: number; numSides?: number }) => number[];
+  ip: (args: any, context: { ip: string }) => string;
 }
 
 // Resolver function for each API endpoint
@@ -26,6 +28,16 @@ const resolvers: Query = {
   },
   totalUsers() {
     return getTotalUsers();
+  },
+  rollDice({ numDice, numSides }) {
+    var output = [];
+    for (var i = 0; i < numDice; i++) {
+      output.push(1 + Math.floor(Math.random() * (numSides || 6)));
+    }
+    return output;
+  },
+  ip(args, context) {
+    return context.ip;
   },
 };
 
