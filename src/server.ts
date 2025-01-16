@@ -1,4 +1,7 @@
 import express from "express";
+
+import cors from "cors";
+
 import { createHandler } from "graphql-http/lib/use/express";
 
 import schema from "./schema.ts";
@@ -7,6 +10,15 @@ import graphiqlHandler from "./graphiql.ts";
 import { loggingMiddleware } from "./middleware.ts";
 
 const app = express();
+
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    methods: ["GET", "POST", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+  })
+);
 
 app.use(loggingMiddleware);
 
